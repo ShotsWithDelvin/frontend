@@ -3,6 +3,10 @@
 module.exports = {
   content: ['./src/**/*.{html,js}'],
   theme: {
+    fontFamily: {
+      primary: 'fantasy',
+      secondary: 'bold Andale Mono, monospace',
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -11,7 +15,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#0E1112',
+        primary: '#6b7280',
         grey: '#484B4B',
 
         accent: '#EEF7F9',

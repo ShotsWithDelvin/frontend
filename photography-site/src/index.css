@@ -1,8 +1,40 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+h1 {
+  color: rgb(219, 234, 247);
+}
 
-/* @layer base {
+p{
+  color: bisque;
+}
+
+.text{
+  color: white;
+}
+
+.icon1 {
+  color: white;
+}
+
+.iconclose {
+  color: white;
+}
+
+li {
+  color: white;
+}
+
+
+
+/* img {
+  width: 500px;
+  height: 100px;
+  top:50px
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
   body {
     @apply overflow-hidden text-primary font-secondary bg-white;
   }
@@ -15,4 +47,4 @@
   .btn {
     @apply py-[18px] px-[50px] h-[66px] flex items-center justify-center text-base uppercase font-secondary font-semibold bg-primary text-white;
   }
-} */
+}
