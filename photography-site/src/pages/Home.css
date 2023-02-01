@@ -1,0 +1,49 @@
+.hero {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.hero-text {
+    align-items: center;
+    width: 50%;
+    font-size: 5em;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 150px;
+    top: 190px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 2em;
+}
+.hero-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+img{
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-text {
+        align-items: center;
+        width: 50%;
+        font-size: 2em;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 150px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .hero-text {
+        align-items: center;
+        width: 50%;
+        font-size: 2em;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 150px;
+    }
+}
