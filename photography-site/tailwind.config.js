@@ -14,6 +14,9 @@ module.exports = {
       xl: '1192px',
     },
     extend: {
+      backgroundImage: {
+        'canon': "url('../src/images/home/canoneosr.jpeg')",
+      },
       colors: {
         primary: '#6b7280',
         grey: '#484B4B',

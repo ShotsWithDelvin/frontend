@@ -18,19 +18,23 @@ const Header = () => {
             className='text-[#9d174d] hover:text-primary transition'
           >
             Home
-          </Link>
-          <Link
-            to={'/about'}
-            className='text-[#9d174d] hover:text-primary transition'
-          >
-            About
-          </Link>
+          </Link> 
+          
           <Link
             to={'/showcase'}
             className='text-[#9d174d] hover:text-primary transition'
           >
             Showcase
           </Link>
+
+          
+          <Link
+            to={'/about'}
+            className='text-[#9d174d] hover:text-primary transition'
+          >
+            About
+          </Link>
+         
           <Link
             to={'/contact'}
             className='text-[#9d174d] hover:text-primary transition'
