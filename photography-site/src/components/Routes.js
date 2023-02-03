@@ -16,7 +16,7 @@ const Path = () => {
         <Route path='/about' element={<About />} />
         <Route path='/showcase' element={<Showcase />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/lgoin' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
   );
