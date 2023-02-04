@@ -15,14 +15,14 @@ const Header = () => {
         <nav className="hidden lg:flex gap-x-12 font-semibold">
         <Link
             to={'/'}
-            className='text-[#9d174d] hover:text-primary transition'
+            className='text-[#60a5fa] hover:text-primary transition'
           >
             Home
           </Link> 
           
           <Link
             to={'/showcase'}
-            className='text-[#9d174d] hover:text-primary transition'
+            className='text-[#60a5fa] hover:text-primary transition'
           >
             Showcase
           </Link>
@@ -30,14 +30,14 @@ const Header = () => {
           
           <Link
             to={'/about'}
-            className='text-[#9d174d] hover:text-primary transition'
+            className='text-[#60a5fa] hover:text-primary transition'
           >
             About
           </Link>
          
           <Link
             to={'/contact'}
-            className='text-[#9d174d] hover:text-primary transition'
+            className='text-[#60a5fa] hover:text-primary transition'
           >
             Contact
           </Link>

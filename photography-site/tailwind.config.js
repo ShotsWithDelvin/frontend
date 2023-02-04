@@ -6,6 +6,8 @@ module.exports = {
     fontFamily: {
       primary: 'fantasy',
       secondary: 'bold Andale Mono, monospace',
+      third: 'font-sans',
+      fourth: 'Arial'
     },
     screens: {
       sm: '640px',
@@ -16,9 +18,11 @@ module.exports = {
     extend: {
       backgroundImage: {
         'canon': "url('../src/images/home/canoneosr.jpeg')",
+        'lens': "url('./images/lens2.png')",
+        'lens2': "url('./images/lens3.png')"
       },
       colors: {
-        primary: '#6b7280',
+        primary: 'bisque',
         grey: '#484B4B',
 
         accent: '#EEF7F9',

@@ -1,12 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import TestImg from "../images/home/test.JPG";
 import { Link } from "react-router-dom";
 import { animation } from "../transitions";
 
 const Home = () => { 
   return (
-    <section className="section w-full h-full bg-canon bg-no-repeat bg-cover">
+    <section className="section bg-canon bg-no-repeat bg-cover">
       <div className="container mx-auto h-full relative">
         <div className="flex flex-col justify-center">
           <div className="w-full pt-36 pb-10 z-10 flex flex-col justify-center items-center lg:items-start">
