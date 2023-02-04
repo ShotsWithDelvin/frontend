@@ -1,7 +1,38 @@
-import React from "react";
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [userName, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  
+  function registerUser() {
+    fetch("http://localhost:3001/users/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        username: userName,
+        email: email,
+        password: password,
+      }),
+    });
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log("submit is working")
+    registerUser();
+    navigate("/login");
+
+  };
+
+
   return (
     <section className="section bg-black bg-no-repeat bg-cover">
       <div class="min-h-screen py-40">
@@ -12,41 +43,41 @@ const SignUp = () => {
               <p class='font-primary text-2xl mb-4'>Join the family</p>
               <form action="#">
                 <div class="mt-5">
-                  <input
-                    type="text"
+                  <input value={name} onChange={(e) => setName(e.target.value)} type="name" required
                     placeholder="Name"
                     className="border border-gray-400 py-1 px-2 w-full rounded-xl mx-auto"
                   />
                 </div>
                 <div class="mt-5">
-                  <input
-                    type="text"
+                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" required
                     placeholder="Email"
                     className="border border-gray-400 py-1 px-2 w-full rounded-xl mx-auto"
                   />
                 </div>
                 <div class="mt-5">
-                  <input
-                    type="password"
+                  <input value={userName} onChange={(e) => setUsername(e.target.value)} type="Username" required
+                    placeholder="Username"
+                    className="border border-gray-400 py-1 px-2 w-full rounded-xl mx-auto"
+                  />
+                </div>
+                <div class="mt-5">
+                  <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required
                     placeholder="Password"
                     className="border border-gray-400 py-1 px-2 w-full rounded-xl mx-auto"
                   />
                 </div>
                 <div class="mt-5">
-                  <input
-                    type="password"
+                  <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required
                     placeholder="Confirm Password"
                     className="border border-gray-400 py-1 px-2 w-full rounded-xl mx-auto"
                   />
                 </div>
                 <div class="mt-5">
-                  <Link
-                    to={"/login"}
+                  <button onClick={handleSubmit}
                     className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px] animate-pulse"
                   >
-                    
                     <div class="text ">Login</div>
-                  </Link>
+                  </button>
                 </div>
               </form>
             </div>
