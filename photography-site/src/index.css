@@ -22,17 +22,15 @@ li {
   color: white;
 }
 
-
-
-/* img {
-  width: 500px;
-  height: 100px;
-  top:50px
-} */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* body {
+  background-color: black;
+  background-size: cover;
+  background-position: top center;
+} */
 
 @layer base {
   body {

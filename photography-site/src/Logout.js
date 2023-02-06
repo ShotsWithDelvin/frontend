@@ -4,7 +4,6 @@ import { UserContext } from "../contexts/userContext";
 import { Redirect } from "react-router-dom";
 
 
-
 function Logout({ completed, setCompleted }) {
     const { setUser } = useContext(UserContext);
     const logout = () =>

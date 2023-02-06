@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'canon': "url('../src/images/home/canoneosr.jpeg')",
+        'canon': "url('./images/home/canoneosr.jpeg')",
         'lens': "url('./images/lens2.png')",
         'lens2': "url('./images/lens3.png')"
       },
