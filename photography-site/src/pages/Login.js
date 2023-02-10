@@ -36,7 +36,7 @@ const navigate = useNavigate();
     if(username && password) {
       sendCredentials(username, password)
     } else {
-      setErrorText("Please enter a valid informatiom")
+      setErrorText("Please enter a valid information")
     }
   }
 
