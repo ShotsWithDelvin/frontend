@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MobileNavBar from './MobileNavBar';
+import Logout from '../components/Logout'
 
 const Header = () => {
   return (
@@ -10,17 +11,17 @@ const Header = () => {
           
         </Link>
 
-        <nav className="hidden lg:flex gap-x-12 font-semibold">
+        <nav className="hidden lg:flex gap-x-12 font-semibold font-primary">
         <Link
             to={'/'}
-            className='text-[#60a5fa] hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-600 to-pink-600 bg-clip-text text-transparent hover:text-primary transition'
           >
             Home
           </Link> 
           
           <Link
             to={'/showcase'}
-            className='text-[#60a5fa] hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text text-transparent hover:text-primary transition'
           >
             Showcase
           </Link>
@@ -28,18 +29,19 @@ const Header = () => {
           
           <Link
             to={'/about'}
-            className='text-[#60a5fa] hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-500 to-red-500 bg-clip-text text-transparent hover:text-primary transition'
           >
             About
           </Link>
          
           <Link
             to={'/contact'}
-            className='text-[#60a5fa] hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-400 to-red-400 bg-clip-text text-transparent hover:text-primary transition'
           >
             Contact
           </Link>
         </nav>
+        <Logout />
       
       </div>
       <MobileNavBar/>

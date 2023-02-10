@@ -7,12 +7,15 @@ export const UserProvider = ( props ) => {
 
   useEffect(() => {
     document.cookie
-      ? fetch("http://localhost:3001/users/login")
+      ? fetch(`http://localhost:3001/users/${document.cookie.users_id}`)
         .then((res) => {
           if (res.status === 200) return res.json();
           return null;
         })
-        .then((json) => setUser(json))
+        .then((json) => {
+          console.log(json)
+          setUser(json)
+        })
       : setUser(null);
   }, [setUser]);
 
