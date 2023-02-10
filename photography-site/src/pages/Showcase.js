@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Showcase = () => {
-  return <section className='section bg-green-200'> Showcase </section>;
+  return <section className='section bg-black'> Showcase </section>;
 };
 
 export default Showcase;
