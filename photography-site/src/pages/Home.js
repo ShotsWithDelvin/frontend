@@ -25,10 +25,6 @@ const Home = () => {
             </Link>
           </div>
 
-          {/* <div class="flex justify-center"> */}
-
-          {/* </div> */}
-
           <div class="flex justify-start gap-x-8 gap-y-4">
             <Link
               to={"/signup"}

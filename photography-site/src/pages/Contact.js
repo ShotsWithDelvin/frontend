@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import MailIcon from "@mui/icons-material/Mail";
 
 
 const Contact = (props) => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_ibylisq', 'template_x0cfqde', form.current, 'uI6dem_EN1VmtKRlW')
+      .then((result) => {
+          console.log(result.text);
+          e.target.reset("Message sent")
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
+
   return (
     <section className="section bg-black">
       <div class="flex w-full min-h-screen justify-center items-center">
@@ -16,6 +32,8 @@ const Contact = (props) => {
                 <MailIcon />
                 <span class="font-primary"> DelvinReyes.95@Gmail.com</span>
               </div>
+              <h2 class="pt-2 font-primary "> Prices </h2>
+              <p class="pt-4 text-sm font-primary "> COMING SOON</p>
             </div>
 
             <div class="flex space-x-4 text-lg">
@@ -28,15 +46,14 @@ const Contact = (props) => {
             </div>
 
             <div class="relative z-10 bg-white rounded-xl shadow-lg p-8 md:w-80">
-              <form action="" class="flex flex-col space-y-4">
+              <form ref={form} onSubmit={sendEmail} class="flex flex-col space-y-4">
                 <div>
                   <label for="" class="text-sm">
-                    {" "}
                     Your name
                   </label>
 
                   <input
-                    type="text"
+                    type="text" name='name'
                     placeholder="Your name"
                     class="text-black ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-gray-300"
                   />
@@ -46,7 +63,7 @@ const Contact = (props) => {
                   <label for="" class="text-sm">Email address
                   </label>
                   <input
-                    type="email"
+                    type="email" name='user_email'
                     placeholder="Email address"
                     class="text-black ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-gray-300"
                   />
@@ -54,11 +71,11 @@ const Contact = (props) => {
                 <div>
                   <label for="" class="text-sm">Message</label>
                   <textarea
-                    placeholder="Message"
+                    placeholder="Message" name='message'
                     class="text-black ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-gray-300"
-                  ></textarea>
+                  />
                 </div>
-                <button class='self-end bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl px-6 py-2 uppercase text-sm '> Send Message</button>
+                <button type="submit" value="Send" class='self-end bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl px-6 py-2 uppercase text-sm '> Send Message</button>
               </form>
             </div>
           </div>
