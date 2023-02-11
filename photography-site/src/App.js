@@ -10,10 +10,12 @@ import SignUp from './pages/SignUp';
 import Showcase from './pages/Showcase';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import { UserProvider } from './context/userContext';
 
 const App = () => {
   return (
     <>
+    <UserProvider>
       <Router>
         <Header />
         <Routes />
@@ -26,7 +28,7 @@ const App = () => {
         <Contact />
         <Routes />
       </Router>
-   
+   </UserProvider>
     </>
   );
 };

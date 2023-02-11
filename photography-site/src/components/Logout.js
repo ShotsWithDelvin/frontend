@@ -20,6 +20,7 @@ function Logout() {
       fetch("/logout")
         .then(() => {
           setUser(null)
+          window.localStorage.removeItem('user')
           document.cookie = ''
         })
         .then(() => {
@@ -29,7 +30,7 @@ function Logout() {
   
   
     return (
-      <div>
+      <div >
         { loggedIn && <button onClick={logout}>Logout</button>}
       </div>
     );
