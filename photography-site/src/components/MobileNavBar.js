@@ -23,7 +23,7 @@ const MobileNavBar = () => {
     <nav className='text-primary xl:hidden'>
       <div onClick={() => setOpenTab(true)}
       className="text-3xl cursor-pointer">
-        <div class='icon1'>
+        <div className='icon1'>
           <CgMenuBoxed />
         </div>
         
@@ -36,7 +36,7 @@ const MobileNavBar = () => {
       className="bg-black shadow-2xl w-full absolute top-0 right-0 max-w-xs h-screen z-20">
         <div onClick={() => setOpenTab(false)}
         className="text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer">
-          <div class='iconclose'>
+          <div className='iconclose'>
             <AiOutlineCloseSquare/>
           </div>
             

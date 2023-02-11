@@ -1,9 +1,11 @@
-import {React,  useState } from "react";
+import {React,  useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
+import { UserContext } from "../context/userContext";
+
 
 const Login = () => {
-  
+const {user, setUser} = useContext(UserContext);
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [errorText, setErrorText] = useState("");
@@ -25,6 +27,7 @@ const navigate = useNavigate();
         throw Error("Invalid Username/Password");
       })
       .then((json) => {
+        setUser(json)
         window.localStorage.setItem('user', JSON.stringify(json))
         navigate('/showcase')
       })

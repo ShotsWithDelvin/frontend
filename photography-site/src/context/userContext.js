@@ -7,7 +7,7 @@ export const UserProvider = ( props ) => {
 
   useEffect(() => {
     document.cookie
-      ? fetch(`http://localhost:3001/users/${document.cookie.users_id}`)
+      ? fetch(`http://localhost:3001/users/${document.cookie.id}`)
         .then((res) => {
           if (res.status === 200) return res.json();
           return null;
