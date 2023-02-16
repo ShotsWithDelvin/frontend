@@ -14,7 +14,7 @@ const Header = () => {
         <nav className="hidden lg:flex gap-x-12 font-semibold font-primary">
         <Link
             to={'/'}
-            className='bg-gradient-to-r from-gray-600 to-pink-600 bg-clip-text text-transparent hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text text-transparent hover:text-primary transition'
           >
             Home
           </Link> 
@@ -40,8 +40,12 @@ const Header = () => {
           >
             Contact
           </Link>
+          <div className="bg-gradient-to-r from-gray-400 to-red-400 bg-clip-text text-transparent hover:text-primary transition">
+            <Logout />
+          </div>
+          
         </nav>
-        <Logout />
+        
       
       </div>
       <MobileNavBar/>

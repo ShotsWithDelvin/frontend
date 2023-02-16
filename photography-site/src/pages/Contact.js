@@ -2,7 +2,9 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import MailIcon from "@mui/icons-material/Mail";
 
-const Contact = (props) => {
+const Contact = () => {
+
+   
   const form = useRef();
   const [messageSent, setMessageSent] = useState(false);
 

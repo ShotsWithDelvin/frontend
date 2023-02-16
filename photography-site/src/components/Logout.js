@@ -30,8 +30,8 @@ function Logout() {
   
   
     return (
-      <div >
-        { loggedIn && <button onClick={logout}>Logout</button>}
+      <div className="font-primary">
+        { loggedIn && <button onClick={logout}>Log out</button>}
       </div>
     );
   }
