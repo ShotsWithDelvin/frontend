@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-
 import ShowcaseCards from "./ShowcaseCards";
-// { images }
 
 const Showcase = () => {
   const [photos, setPhotos] = useState([]);
@@ -13,10 +11,10 @@ const Showcase = () => {
   }, []);
 
   return (
-    <section className="section bg-black">
-            <div class="flex min-h-screen items-center">
+    <section className="overflow-scroll section bg-black">
+            <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl">
               <div className="">
-                <div className=" grid grid-cols-4 gap-3">
+                <div className="grid grid-cols-1 gap-y-10 xl:grid-cols-3 xl:gap-x-2">
                 {photos.map((x) => {
                   return <ShowcaseCards key={x.id} img={x.url}/>;
                 })}
@@ -24,9 +22,14 @@ const Showcase = () => {
               </div>
               
             </div>  
+
     </section>
+
   );
 };
+
+export default Showcase;
+
 
 //      { /*
 
@@ -89,4 +92,4 @@ const Showcase = () => {
 
 // */}
 
-export default Showcase;
+
