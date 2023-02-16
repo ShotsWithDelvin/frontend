@@ -43,6 +43,9 @@ const SignUp = () => {
             <div class="w-full lg:1/2 flex flex-col p-12 py-16 px-12">
               <h2 class="text-white text-3xl mb-4 font-fourth animate-bounce"> Sign Up </h2>
               <p class='font-primary text-2xl mb-4'>Join the family</p>
+
+
+
               <form action="#">
                 <div class="mt-5">
                   <input value={name} onChange={(e) => setName(e.target.value)} type="name" required

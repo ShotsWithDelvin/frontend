@@ -6,7 +6,7 @@ module.exports = {
     fontFamily: {
       primary: 'fantasy',
       secondary: 'bold Andale Mono, monospace',
-      third: 'font-sans',
+      third: 'Montserrat',
       fourth: 'Arial'
     },
     screens: {

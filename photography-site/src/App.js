@@ -7,7 +7,6 @@ import { motion } from 'framer-motion'
 import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import Showcase from './pages/Showcase';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import { UserProvider } from './context/userContext';
@@ -22,7 +21,6 @@ const App = () => {
         <MobileNavBar />
         <Home />
         <About />
-        <Showcase />
         <Login />
         <SignUp />
         <Contact />
