@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import { UserProvider } from './context/userContext';
+import Showcase from './pages/Showcase';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Routes />
         <MobileNavBar />
         <Home />
+        <Showcase />
         <About />
         <Login />
         <SignUp />

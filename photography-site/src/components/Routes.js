@@ -3,13 +3,12 @@ import Home from '../pages/Home';
 import About from '../pages/About';
 import Showcase from '../pages/Showcase';
 import Contact from '../pages/Contact';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { FlatTree } from 'framer-motion';
+import { Routes, Route} from 'react-router-dom';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 
 const Path = () => {
-  // const location = Navigate();
+
   return (
       <Routes >
         <Route path='/' element={<Home />} />

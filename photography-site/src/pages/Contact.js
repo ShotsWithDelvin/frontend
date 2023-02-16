@@ -59,7 +59,7 @@ const Contact = () => {
             <div class="absolute z-0 w-40 h-40 bg-gradient-to-r from-gray-600 to-red-600 -left-28 -bottom-16"></div>
 
             <div class="relative z-10 bg-white rounded-xl shadow-lg p-8 md:w-80">
-              <form
+              <form isRequired
                 ref={form}
                 onSubmit={sendEmail}
                 class="flex flex-col space-y-4"
