@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import MobileNavBar from './MobileNavBar';
 import Logout from '../components/Logout'
+import { UserContext } from "../context/userContext";
 
 const Header = () => {
+
+  const { showOverlay } = useContext(UserContext)
+
   return (
-    <header className="fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center">
+    <div>
+
+    {!showOverlay && <header className="fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center">
       <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between">
         <Link to={'/'} className='max-w-[200px]'>
           
@@ -49,7 +55,8 @@ const Header = () => {
       
       </div>
       <MobileNavBar/>
-    </header>
+    </header>}
+    </div>
   );
 };
 

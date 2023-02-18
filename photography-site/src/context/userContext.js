@@ -4,6 +4,7 @@ export const UserContext = createContext({});
 
 export const UserProvider = ( props ) => {
   const [user, setUser] = useState(null);
+  const [showOverlay, setShowOverlay] = useState(false)
 
   useEffect(() => {
     document.cookie
@@ -21,7 +22,9 @@ export const UserProvider = ( props ) => {
 
   const context = {
     user,
-    setUser
+    setUser,
+    showOverlay,
+    setShowOverlay,
   }
 
   return (
