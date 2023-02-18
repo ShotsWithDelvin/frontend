@@ -1,1 +1,2 @@
 # frontend
+My application is a photography portfolio that allows engagement by giving open access for users to like and share reviews on my images. Users will also have access to contact me via email if they want services along with their images being featured on the application. I strongly believe users will use my application if they want a trustworthy and a fully engaging photographer that’ll support their vision or if users need some inspiration for an upcoming photoshoot or need some ideas for a photoshoot (like pinterest) then my application will fit their needs.
