@@ -1,22 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../context/userContext";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { animation } from "../transitions";
 import Logout from "../components/Logout";
 
 const Home = () => {
-  const { user, setUser } = useContext(UserContext);
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (user?.id) {
-      setLoggedIn(true);
-    } else {
-      setLoggedIn(false);
-    }
-  }, [user]);
-
+  const { user } = useContext(UserContext);
   return (
     <section className="section bg-canon bg-no-repeat bg-cover">
       <div className="container mx-auto h-full relative">
@@ -34,42 +22,42 @@ const Home = () => {
               to={"/showcase"}
               className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
             >
-              <div class="text font-primary">View Showcase</div>
+              <div className="text font-primary">View Showcase</div>
             </Link>
           </div>
 
-          <div class="flex justify-start gap-x-8 gap-y-4">
-            {!loggedIn && <Link
+          <div className="flex justify-start gap-x-8 gap-y-4">
+            {!user && <Link
               to={"/signup"}
               className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
             >
-              <div class="text font-primary">Sign Up</div>
+              <div className="text font-primary">Sign Up</div>
             </Link>}
 
-           { !loggedIn && <Link
+           { !user && <Link
               to={"/login"}
               className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
             >
-              <div class="text font-primary">Login</div>
+              <div className="text font-primary">Login</div>
             </Link>}
-            <br />
-            {loggedIn && <div
+            {/* <br />
+            {user && <div
               to={"/logout"}
               className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
             >
               <Logout />
-            </div>}
+            </div>} */}
           </div>
         </div>
         <div className="w-full flex items-start justify-start lg:w-1/2">
           {/* Ball */}
-          <div class="hidden relative lg:flex h-full w-1/2 items-start justify-center bg-grey-200 pb-5">
+          <div className="hidden relative lg:flex h-full w-1/2 items-start justify-center bg-grey-200 pb-5">
             <div className="w-40 h-40 bg-gradient-to-r from-red-400 via-red-500 to-red-600 rounded-full animate-pulse" />
             <div className="w-full h-1/2 bottom-0 absolute bg-black/10 backdrop-blur-lg" />
           </div>
         </div>
 
-        <div class="flex justify-center">
+        <div className="flex justify-center">
           <p className="text-[36px] lg:text-[30px] font-primary pb-5">
             Come join the family
           </p>
