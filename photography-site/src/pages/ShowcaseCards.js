@@ -1,8 +1,9 @@
-import { React, useState, useContext, useRef, useEffect } from "react";
+import { React, useState, useContext, useRef} from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { IoMdCloseCircle } from "react-icons/io";
 import { BiCommentDetail } from "react-icons/bi";
 import { UserContext } from "../context/userContext";
+import Likes from '../components/Likes'
 import "./ShowcaseCards.css";
 
 function ShowcaseCards({ id, img }) {
@@ -83,16 +84,12 @@ function ShowcaseCards({ id, img }) {
     commentInputRef.current.value = "";
   };
 
+
   return (
     <div className="image-component">
       <div className="text-white w-24 flex flex-col-3 gap-3 px-5 py-3">
-        <AiFillHeart
-          onClick={() => {
-            setLikes((likes) => likes + 1);
-          }}
-          className="like-button"
-        />
-        <BiCommentDetail onClick={() => setOpen(!open)} />
+        <Likes/>
+        <BiCommentDetail />
       </div>
 
       {showModal && (
@@ -119,7 +116,7 @@ function ShowcaseCards({ id, img }) {
                   </div>
                 ))}
             </div>
-            <div className="write-comment-section">
+            <div className="text-black">
               {user && (
                 <form
                   onSubmit={(e) => {
@@ -132,11 +129,11 @@ function ShowcaseCards({ id, img }) {
                       ref={commentInputRef}
                       autoComplete="off"
                       type="text"
-                      className="comment-text"
+                      className="rounded-lg "
                       name="search"
                       onChange={onChange}
                       size="35"
-                      placeholder="Enter Comment..."
+                      placeholder=" Comment..."
                       required
                       id="commentPost"
                     />
