@@ -19,7 +19,7 @@ const images = [
   "./nacier.JPG",
   "./devonte.JPG",
   "./jorden.JPG",
-  "./jordan.JPG"
+  "./caston.JPG"
   
 ]
 
