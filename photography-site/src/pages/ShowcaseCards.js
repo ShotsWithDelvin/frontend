@@ -1,19 +1,19 @@
-import { React, useState, useContext, useRef} from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { IoMdCloseCircle } from "react-icons/io";
 import { BiCommentDetail } from "react-icons/bi";
 import { UserContext } from "../context/userContext";
-import Likes from '../components/Likes'
 import "./ShowcaseCards.css";
 
 function ShowcaseCards({ id, img }) {
   const [comments, setComments] = useState([]);
-  const [likes, setLikes] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [open, setOpen] = useState(false);
   const [newComment, setNewComment] = useState("");
+  const [likes, setLikes] = useState(0);
   const commentInputRef = useRef();
-  const { token } = JSON.parse(window.localStorage.getItem('showcase-token')) ?? {}
+
+  const { token } =
+    JSON.parse(window.localStorage.getItem("showcase-token")) ?? {};
 
   const { showOverlay, setShowOverlay, user } = useContext(UserContext);
 
@@ -75,6 +75,7 @@ function ShowcaseCards({ id, img }) {
 
   const handleClick = () => {
     fetchComments();
+    fetchLikes();
     setShowModal(!showModal);
     setShowOverlay(!showOverlay);
   };
@@ -84,13 +85,50 @@ function ShowcaseCards({ id, img }) {
     commentInputRef.current.value = "";
   };
 
+  //-------------------------------------------//
+
+  const fetchLikes = async () => {
+    try {
+      const result = await fetch(`http://localhost:3001/likes/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const json = await result.json();
+
+      setLikes(json.count);
+    } catch (e) {}
+  };
+
+  const addLike = async () => {
+    try {
+      const result = await fetch(`http://localhost:3001/likes/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          photos_id: id,
+          users_id: user?.id,
+        }),
+      });
+      const json = await result.json();
+      setLikes(json.count);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div className="image-component">
-      <div className="text-white w-24 flex flex-col-3 gap-3 px-5 py-3">
-        <Likes/>
-        <BiCommentDetail />
-      </div>
+      <div className="text-white w-24 flex flex-col-3 gap-3 px-5 py-7"></div>
+            <div className="text-[#dc2626] flex flex-col-2 gap-1 ">
+            <AiFillHeart onClick={addLike}/>
+            <div className="text-white">{likes && <h1>{likes}</h1>}</div>
+            </div>
+            
 
       {showModal && (
         <div className="image-modal">
