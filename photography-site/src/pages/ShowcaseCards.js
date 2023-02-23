@@ -1,7 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { IoMdCloseCircle } from "react-icons/io";
-import { BiCommentDetail } from "react-icons/bi";
 import { UserContext } from "../context/userContext";
 import "./ShowcaseCards.css";
 
@@ -10,10 +9,45 @@ function ShowcaseCards({ id, img }) {
   const [showModal, setShowModal] = useState(false);
   const [newComment, setNewComment] = useState("");
   const [likes, setLikes] = useState(0);
+  const [editingCommentId, setEditingCommentId] = useState(null);
+  const [editedCommentText, setEditedCommentText] = useState("");
   const commentInputRef = useRef();
+  const editTextRef = useRef()
 
   const { token } =
     JSON.parse(window.localStorage.getItem("showcase-token")) ?? {};
+
+  function handleEdit(commentId) {
+    setEditingCommentId(commentId);
+  }
+
+  async function handleSave(event) {
+    event.preventDefault();
+    try {
+      console.log(editedCommentText)
+      const result = await fetch(`http://localhost:3001/comments/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          commentary: editedCommentText,
+          comment_id: editingCommentId,
+          photos_id: id
+        }),
+      });
+      const json = await result.json();
+      setComments(json);
+    } catch (e) {
+      console.log(e);
+    }
+
+    setEditingCommentId(null);
+  }
+
+  //----------------------------------------------//
+
 
   const { showOverlay, setShowOverlay, user } = useContext(UserContext);
 
@@ -75,7 +109,6 @@ function ShowcaseCards({ id, img }) {
 
   const handleClick = () => {
     fetchComments();
-    fetchLikes();
     setShowModal(!showModal);
     setShowOverlay(!showOverlay);
   };
@@ -85,6 +118,9 @@ function ShowcaseCards({ id, img }) {
     commentInputRef.current.value = "";
   };
 
+  const onEdit = (e) => {
+    setEditedCommentText(e.target.value);
+  }
   //-------------------------------------------//
 
   const fetchLikes = async () => {
@@ -96,7 +132,7 @@ function ShowcaseCards({ id, img }) {
         },
       });
       const json = await result.json();
-
+      console.log(json)
       setLikes(json.count);
     } catch (e) {}
   };
@@ -121,14 +157,17 @@ function ShowcaseCards({ id, img }) {
     }
   };
 
+  useEffect(() => {
+    fetchLikes();
+  }, [])
+
   return (
     <div className="image-component">
       <div className="text-white w-24 flex flex-col-3 gap-3 px-5 py-7"></div>
-            <div className="text-[#dc2626] flex flex-col-2 gap-1 ">
-            <AiFillHeart onClick={addLike}/>
-            <div className="text-white">{likes && <h1>{likes}</h1>}</div>
-            </div>
-            
+      <div className="text-[#dc2626] flex flex-col-2 gap-1 ">
+        <AiFillHeart onClick={addLike} />
+        <div className="text-white">{likes && <h1>{likes}</h1>}</div>
+      </div>
 
       {showModal && (
         <div className="image-modal">
@@ -146,14 +185,32 @@ function ShowcaseCards({ id, img }) {
                   >
                     <h4 className="text-white">{comment.username}:</h4>
                     <p className="text-white">{comment.commentary}</p>
-                    <div className="bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text text-transparent hover:text-primary transition font-primary">
+                    <div className=" flex flex-col-2 gap-2 bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text hover:text-[#b91c1c] transparent transition font-primary">
                       <button onClick={() => deleteComment(comment.id)}>
                         Delete
                       </button>
+                      <div className="bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text text-transparent hover:text-white transition font-primary">
+                        <button onClick={() => handleEdit(comment.id)}>
+                          Edit
+                        </button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
                 ))}
+
+              {editingCommentId && user &&  (
+                <form onSubmit={handleSave}>
+                  <input className="text-black"
+                    type="text"
+                    ref={editTextRef}
+                    onChange={onEdit}
+                  />
+                    <button className="flex space-x-4" type="submit">Save</button>
+                  
+                </form>
+              )}
             </div>
+
             <div className="text-black">
               {user && (
                 <form
