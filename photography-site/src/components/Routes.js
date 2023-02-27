@@ -10,7 +10,7 @@ import SignUp from '../pages/SignUp';
 const Path = () => {
 
   return (
-      <Routes >
+      <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/showcase' element={<Showcase />} />
@@ -18,6 +18,8 @@ const Path = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
+    
+      
   );
 };
 

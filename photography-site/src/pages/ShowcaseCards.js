@@ -12,8 +12,9 @@ function ShowcaseCards({ id, img }) {
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editedCommentText, setEditedCommentText] = useState("");
   const commentInputRef = useRef();
-  const editTextRef = useRef()
+  const editTextRef = useRef();
 
+  const { showOverlay, setShowOverlay, user } = useContext(UserContext);
   const { token } =
     JSON.parse(window.localStorage.getItem("showcase-token")) ?? {};
 
@@ -24,7 +25,7 @@ function ShowcaseCards({ id, img }) {
   async function handleSave(event) {
     event.preventDefault();
     try {
-      console.log(editedCommentText)
+      console.log(editedCommentText);
       const result = await fetch(`http://localhost:3001/comments/${id}`, {
         method: "PUT",
         headers: {
@@ -34,7 +35,7 @@ function ShowcaseCards({ id, img }) {
         body: JSON.stringify({
           commentary: editedCommentText,
           comment_id: editingCommentId,
-          photos_id: id
+          photos_id: id,
         }),
       });
       const json = await result.json();
@@ -47,9 +48,6 @@ function ShowcaseCards({ id, img }) {
   }
 
   //----------------------------------------------//
-
-
-  const { showOverlay, setShowOverlay, user } = useContext(UserContext);
 
   const fetchComments = async () => {
     try {
@@ -120,7 +118,7 @@ function ShowcaseCards({ id, img }) {
 
   const onEdit = (e) => {
     setEditedCommentText(e.target.value);
-  }
+  };
   //-------------------------------------------//
 
   const fetchLikes = async () => {
@@ -132,7 +130,6 @@ function ShowcaseCards({ id, img }) {
         },
       });
       const json = await result.json();
-      console.log(json)
       setLikes(json.count);
     } catch (e) {}
   };
@@ -159,7 +156,7 @@ function ShowcaseCards({ id, img }) {
 
   useEffect(() => {
     fetchLikes();
-  }, [])
+  }, []);
 
   return (
     <div className="image-component">
@@ -185,28 +182,31 @@ function ShowcaseCards({ id, img }) {
                   >
                     <h4 className="text-white">{comment.username}:</h4>
                     <p className="text-white">{comment.commentary}</p>
-                    <div className=" flex flex-col-2 gap-2 bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text hover:text-[#b91c1c] transparent transition font-primary">
-                      <button onClick={() => deleteComment(comment.id)}>
+                    {user?.id === comment.users_id && (<div className=" flex flex-col-2 gap-2 bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text hover:text-[#b91c1c] transparent transition font-primary">
+                     <button onClick={() => deleteComment(comment.id)}>
                         Delete
                       </button>
                       <div className="bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text text-transparent hover:text-white transition font-primary">
                         <button onClick={() => handleEdit(comment.id)}>
                           Edit
                         </button>
-                        </div>
                       </div>
-                    </div>
+                    </div>)}
+                  </div>
                 ))}
 
-              {editingCommentId && user &&  (
+
+              {editingCommentId && user && (
                 <form onSubmit={handleSave}>
-                  <input className="text-black"
+                  <input
+                    className="text-black"
                     type="text"
                     ref={editTextRef}
                     onChange={onEdit}
                   />
-                    <button className="flex space-x-4" type="submit">Save</button>
-                  
+                  <button className="flex space-x-4" type="submit">
+                    Save
+                  </button>
                 </form>
               )}
             </div>
@@ -252,3 +252,10 @@ function ShowcaseCards({ id, img }) {
 }
 
 export default ShowcaseCards;
+
+
+
+
+
+
+

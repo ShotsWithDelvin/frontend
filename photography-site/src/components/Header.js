@@ -4,6 +4,8 @@ import MobileNavBar from './MobileNavBar';
 import Logout from '../components/Logout'
 import { UserContext } from "../context/userContext";
 
+//bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text text-transparent hover:text-primary transition
+
 const Header = () => {
 
   const { showOverlay } = useContext(UserContext)
@@ -20,14 +22,14 @@ const Header = () => {
         <nav className="hidden lg:flex gap-x-12 font-semibold font-primary">
         <Link
             to={'/'}
-            className='bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text text-transparent hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-600 to-red-600 rounded text-black hover:text-primary transition'
           >
             Home
           </Link> 
           
           <Link
             to={'/showcase'}
-            className='bg-gradient-to-r from-gray-600 to-red-600 bg-clip-text text-transparent hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-600 to-red-600 rounded text-black hover:text-primary transition'
           >
             Showcase
           </Link>
@@ -35,18 +37,18 @@ const Header = () => {
           
           <Link
             to={'/about'}
-            className='bg-gradient-to-r from-gray-500 to-red-500 bg-clip-text text-transparent hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-600 to-red-600 rounded text-black hover:text-primary transition'
           >
             About
           </Link>
          
           <Link
             to={'/contact'}
-            className='bg-gradient-to-r from-gray-400 to-red-400 bg-clip-text text-transparent hover:text-primary transition'
+            className='bg-gradient-to-r from-gray-600 to-red-600 rounded text-black hover:text-primary transition'
           >
             Contact
           </Link>
-          <div className="bg-gradient-to-r from-gray-400 to-red-400 bg-clip-text text-transparent hover:text-primary transition">
+          <div className="bg-gradient-to-r from-gray-600 to-red-600 rounded text-black">
             <Logout />
           </div>
           

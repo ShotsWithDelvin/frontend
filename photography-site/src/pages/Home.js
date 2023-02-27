@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { Link } from "react-router-dom";
-import Logout from "../components/Logout";
 
 const Home = () => {
   const { user } = useContext(UserContext);
   return (
-    <section className="section bg-canon bg-no-repeat bg-cover">
+    <section
+      className="section bg-canon bg-no-repeat bg-cover"
+    >
       <div className="container mx-auto h-full relative">
         <div className="flex flex-col justify-center">
           <div className="w-full pt-36 pb-10 z-10 flex flex-col justify-center items-center lg:items-start">
@@ -27,26 +28,23 @@ const Home = () => {
           </div>
 
           <div className="flex justify-start gap-x-8 gap-y-4">
-            {!user && <Link
-              to={"/signup"}
-              className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
-            >
-              <div className="text font-primary">Sign Up</div>
-            </Link>}
+            {!user && (
+              <Link
+                to={"/signup"}
+                className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
+              >
+                <div className="text font-primary">Sign Up</div>
+              </Link>
+            )}
 
-           { !user && <Link
-              to={"/login"}
-              className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
-            >
-              <div className="text font-primary">Login</div>
-            </Link>}
-            {/* <br />
-            {user && <div
-              to={"/logout"}
-              className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
-            >
-              <Logout />
-            </div>} */}
+            {!user && (
+              <Link
+                to={"/login"}
+                className="bg-gradient-to-r from-gray-600 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all rounded-xl btn mb-[30px]"
+              >
+                <div className="text font-primary">Login</div>
+              </Link>
+            )}
           </div>
         </div>
         <div className="w-full flex items-start justify-start lg:w-1/2">

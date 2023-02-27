@@ -10,12 +10,9 @@ export const UserProvider = ( props ) => {
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem('showcase-token'))
       if(token) {
-          fetch(`http://localhost:3001/users/${token.user.id}`).then((res) => res.json()).then((json) => {
-            console.log('run')
-            setUser(json)
-          })
+          setUser(token.user)
       } else {
-          setUser(undefined)
+        setUser(undefined)
       }
   }, [])
 
