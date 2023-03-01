@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -27,6 +28,11 @@
     <title>React App</title>
   </head>
   <body>
+    <header class="nav-area">
+      <div class="menu-wrapper">
+
+      </div>
+    </header>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -40,4 +46,31 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+  <script>
+    $(function(){
+      let scroll = (document).scrollTop();
+      let navHeight = ('.nav').outerHeight();
+      $(window).scroll(function(){
+        let scrolled = $(document).scrollTop();
+        if (scrolled > navHeight){
+          $('.nav').addClass('animate');
+        }else{
+          $('.nav').removeClass('animate');
+        }
+        if(scrolled < scroll){
+          $('.nav').removeClass('sticky')
+        }else{
+          $('.nav').addClass('sticky')
+        }
+        scroll = $(document).scrollTop();
+
+
+      })
+    })
+  </script>
+
+
+
+
 </html>

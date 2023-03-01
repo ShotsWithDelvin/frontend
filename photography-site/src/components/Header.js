@@ -14,22 +14,22 @@ const Header = () => {
     <div>
 
     {!showOverlay && <header className="fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center">
-      <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between">
+      <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between" >
         <Link to={'/'} className='max-w-[200px]'>
           
         </Link>
 
-        <nav className="hidden lg:flex gap-x-12 font-semibold font-primary">
+        <nav className=" backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-full hidden lg:flex gap-x-12 font-semibold font-primary" >
         <Link
             to={'/'}
-            className='bg-gradient-to-r from-gray-600 to-red-600 rounded text-black hover:text-primary transition'
+            className='rounded text-[#991b1b] hover:text-primary transition bg-opacity-30'
           >
             Home
           </Link> 
           
           <Link
             to={'/showcase'}
-            className='bg-gradient-to-r from-gray-600 to-red-600 rounded text-black hover:text-primary transition'
+            className='rounded text-[#b91c1c] hover:text-primary transition'
           >
             Showcase
           </Link>
@@ -37,18 +37,18 @@ const Header = () => {
           
           <Link
             to={'/about'}
-            className='bg-gradient-to-r from-gray-600 to-red-600 rounded text-black hover:text-primary transition'
+            className='rounded text-[#b91c1c] hover:text-primary transition'
           >
             About
           </Link>
          
           <Link
             to={'/contact'}
-            className='bg-gradient-to-r from-gray-600 to-red-600 rounded text-black hover:text-primary transition'
+            className='rounded text-[#b91c1c] hover:text-primary transitionn'
           >
             Contact
           </Link>
-          <div className="bg-gradient-to-r from-gray-600 to-red-600 rounded text-black">
+          <div className="rounded text-[#b91c1c] hover:text-primary transition">
             <Logout />
           </div>
           
