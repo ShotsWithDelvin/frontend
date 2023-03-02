@@ -1,6 +1,7 @@
 import {React,  useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext";
+import APIURL from './apiEndpoint'
 
 
 const Login = () => {
@@ -13,7 +14,7 @@ const navigate = useNavigate();
   const sendCredentials = (username, password) => {
     
 
-    fetch("http://localhost:3001/users/login", {
+    fetch(`${APIURL}users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

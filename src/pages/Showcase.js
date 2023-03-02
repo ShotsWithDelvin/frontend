@@ -1,13 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 import ShowcaseCards from "./ShowcaseCards";
 import { UserContext } from "../context/userContext";
+import APIURL from './apiEndpoint'
 
 const Showcase = () => {
   const [photos, setPhotos] = useState([]);
   const { showOverlay, setShowOverlay } = useContext(UserContext);
 
   useEffect(() => {
-    fetch("http://localhost:3001/photos")
+    fetch(`${APIURL}/photos`)
       .then((response) => response.json())
       .then((data) => setPhotos(data));
   }, []);

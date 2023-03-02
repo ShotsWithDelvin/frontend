@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext";
+import APIURL from './apiEndpoint'
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -13,7 +14,7 @@ const SignUp = () => {
   
    async function registerUser() {
     try {
-      const result = await fetch("http://localhost:3001/users/signup", {
+      const result = await fetch(`${APIURL}/users/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

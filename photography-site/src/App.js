@@ -10,13 +10,24 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import { UserProvider } from './context/userContext';
 import Showcase from './pages/Showcase';
+import APIURL from './apiEndpoint'
+import { useEffect } from 'react';
 
 
 const App = () => {
 
+
+  
+  useEffect(() => {
+     fetch(`${APIURL}/`)
+  });
+
+
+
   return (
 
     <>
+    <div>{}</div>
     <UserProvider>
       <Router>
         <Header />

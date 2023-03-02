@@ -3,6 +3,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { IoMdCloseCircle } from "react-icons/io";
 import { UserContext } from "../context/userContext";
 import "./ShowcaseCards.css";
+import APIURL from './apiEndpoint'
 
 function ShowcaseCards({ id, img }) {
   const [comments, setComments] = useState([]);
@@ -26,7 +27,7 @@ function ShowcaseCards({ id, img }) {
     event.preventDefault();
     try {
       console.log(editedCommentText);
-      const result = await fetch(`http://localhost:3001/comments/${id}`, {
+      const result = await fetch(`${APIURL}/comments/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +52,7 @@ function ShowcaseCards({ id, img }) {
 
   const fetchComments = async () => {
     try {
-      const result = await fetch(`http://localhost:3001/comments/${id}`, {
+      const result = await fetch(`${APIURL}/comments/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +65,7 @@ function ShowcaseCards({ id, img }) {
 
   const addComment = async () => {
     try {
-      const result = await fetch(`http://localhost:3001/comments/${id}`, {
+      const result = await fetch(`${APIURL}/comments/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -85,7 +86,7 @@ function ShowcaseCards({ id, img }) {
 
   const deleteComment = async (commentId) => {
     try {
-      const result = await fetch(`http://localhost:3001/comments`, {
+      const result = await fetch(`${APIURL}/comments`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -123,7 +124,7 @@ function ShowcaseCards({ id, img }) {
 
   const fetchLikes = async () => {
     try {
-      const result = await fetch(`http://localhost:3001/likes/${id}`, {
+      const result = await fetch(`${APIURL}/likes/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -136,7 +137,7 @@ function ShowcaseCards({ id, img }) {
 
   const addLike = async () => {
     try {
-      const result = await fetch(`http://localhost:3001/likes/${id}`, {
+      const result = await fetch(`${APIURL}/likes/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
