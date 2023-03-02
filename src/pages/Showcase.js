@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import ShowcaseCards from "./ShowcaseCards";
 import { UserContext } from "../context/userContext";
-import APIURL from './apiEndpoint'
+import APIURL from '../apiEndpoint'
 
 const Showcase = () => {
   const [photos, setPhotos] = useState([]);
