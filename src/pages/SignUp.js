@@ -35,7 +35,8 @@ const SignUp = () => {
     }
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     registerUser();
     navigate("/");
   };
