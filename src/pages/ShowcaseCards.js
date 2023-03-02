@@ -3,7 +3,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { IoMdCloseCircle } from "react-icons/io";
 import { UserContext } from "../context/userContext";
 import "./ShowcaseCards.css";
-import APIURL from './apiEndpoint'
+import APIURL from '../apiEndpoint'
 
 function ShowcaseCards({ id, img }) {
   const [comments, setComments] = useState([]);
