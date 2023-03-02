@@ -14,7 +14,7 @@ const navigate = useNavigate();
   const sendCredentials = (username, password) => {
     
 
-    fetch(`${APIURL}users/login`, {
+    fetch(`${APIURL}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
