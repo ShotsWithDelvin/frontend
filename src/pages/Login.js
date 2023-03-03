@@ -24,7 +24,6 @@ const navigate = useNavigate();
       .then((res) => {
         if (res.status === 200) return res.json();
         console.warn("Invalid Username/Password");
-        throw Error("Invalid Username/Password");
       })
       .then((json) => {
         setUser(json.user)
