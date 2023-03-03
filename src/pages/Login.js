@@ -31,7 +31,7 @@ const navigate = useNavigate();
         localStorage.setItem('showcase-token', JSON.stringify(json))
         navigate('/showcase')
       })
-      .catch((err) => console.log(err));
+      // .catch((err) => console.log(err));
   };
 
   const handleSubmit = (e) => {
