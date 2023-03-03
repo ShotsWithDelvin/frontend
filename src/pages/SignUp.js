@@ -27,6 +27,7 @@ const SignUp = () => {
         }),
       });
       const json = await result.json();
+      console.log(json)
       const verifiedUser = {user: json.user.username, token: json.token, userId: json.user.id}
       localStorage.setItem('showcase-token', JSON.stringify(verifiedUser))
       setUser(json.user)

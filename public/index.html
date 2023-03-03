@@ -46,31 +46,4 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
-
-  <script>
-    $(function(){
-      let scroll = (document).scrollTop();
-      let navHeight = ('.nav').outerHeight();
-      $(window).scroll(function(){
-        let scrolled = $(document).scrollTop();
-        if (scrolled > navHeight){
-          $('.nav').addClass('animate');
-        }else{
-          $('.nav').removeClass('animate');
-        }
-        if(scrolled < scroll){
-          $('.nav').removeClass('sticky')
-        }else{
-          $('.nav').addClass('sticky')
-        }
-        scroll = $(document).scrollTop();
-
-
-      })
-    })
-  </script>
-
-
-
-
 </html>
